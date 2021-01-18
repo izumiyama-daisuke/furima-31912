@@ -11,9 +11,7 @@
 | last_name          | string     | null: false                    |
 | first_kana         | string     | null: false                    |
 | last_kana          | string     | null: false                    |
-| birth_year         | integer    | null: false                    |
-| birth_month        | integer    | null: false                    |
-| birth_day          | integer    | null: false                    |
+| birthday           | date       | null: false                    |
 
 ### Association
 - has_many :items
@@ -62,10 +60,11 @@
 | ----------------- | ---------- | ------------------------------ |
 | postal_code       | string     | null: false                    |郵便番号
 | prefecture_id     | integer    | null: false                    |都道府県(ActiveHash)
-| city              | text       | null: false                    |市町村
-| address1          | text       | null: false                    |番地
-| address2          | text       |                                |建物名
+| city              | string     | null: false                    |市町村
+| address1          | string     | null: false                    |番地
+| address2          | string     |                                |建物名
 | telephone         | string     | null: false,                   |電話番号
+| buy               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :buy
