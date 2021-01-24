@@ -6,8 +6,8 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
 
   with_options presence: true do
-    validates :password_confirmation, presence: true
-    validates :birthday, presence: true
+    validates :password_confirmation
+    validates :birthday
   end
 
   NAME_REGEX = /\A[ぁ-んァ-ヶ一-龥々]+\z/.freeze
