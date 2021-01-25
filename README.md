@@ -14,13 +14,13 @@
 | birthday           | date       | null: false                    |
 
 ### Association
-- has_many :items
+- has_many :products
 - has_many :buys
 
 
 
 
-## itemsテーブル
+## productsテーブル
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
@@ -50,7 +50,7 @@
 ### Association
 - belongs_to :user
 - has_one :delivery
-- belongs_to :item
+- belongs_to :product
 
 
 
