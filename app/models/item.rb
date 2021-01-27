@@ -11,7 +11,11 @@ class Item < ApplicationRecord
   belongs_to :day
   
   #空の投稿を保存できないようにする
-  validates :title, :text, presence: true
+  with_options presence: true do
+    validates :item_name
+    validates :description
+    validates :price
+  end
   
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id, numericality: { other_than: 1 } 
@@ -19,9 +23,4 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, numericality: { other_than: 1 } 
   validates :prefecture_id, numericality: { other_than: 1 } 
   validates :day_id, numericality: { other_than: 1 } 
-
-  
 end
-
-  
-  
