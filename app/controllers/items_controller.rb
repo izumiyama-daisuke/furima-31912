@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @article.save
+    if @item.save
       redirect_to root_path
     else
       render :new
@@ -29,8 +29,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :item_name, :description, :price, :category_id, :state_id, :delivery_fee_id, :prefecture_id, :day_id).merge(user_id: current_user.id)
   end
-  ####アクティブストレージの記載です変更してください
-  #def message_params
-   # params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
-  #end
+
 end
