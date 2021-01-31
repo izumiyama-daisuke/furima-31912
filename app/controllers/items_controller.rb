@@ -15,14 +15,6 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  #def create
-  #  @article = Article.new(article_params)
-  #  if @article.save
-  #    redirect_to root_path
-  #  else
-  #    render :new
-  #  end
-  #end
 
   private
 
