@@ -17,11 +17,8 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  #PRICE_REGEX = /\A[0-9]+\z/.freeze
-  #PRICE_REGEX = /\A[0-9]+\z/.freeze
-  #alidates :price, presence: true, inclusion: {in: 300..9999999 }, format: { with: /\A[0-9]+\z/, message: '半角（数字）を使用してください' }
   validates :price, presence: true, inclusion: {in: 300..9999999 }
-  #validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
+  
 
   
   #ジャンルの選択が「--」の時は保存できないようにする
