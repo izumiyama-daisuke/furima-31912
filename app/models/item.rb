@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :day
 
-  
   with_options presence: true do
     validates :item_name
     validates :description
@@ -19,7 +18,6 @@ class Item < ApplicationRecord
 
   validates :price, presence: true, inclusion: { in: 300..9_999_999 }
 
-  
   validates :category_id, numericality: { other_than: 1 }
   validates :state_id, numericality: { other_than: 1 }
   validates :delivery_fee_id, numericality: { other_than: 1 }
