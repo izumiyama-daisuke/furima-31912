@@ -57,18 +57,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it '価格の範囲が、¥300~¥9,999,999の間以外では登録できない' do
+      it '価格の範囲が、¥300より安くては登録できない' do
         @item.price = '200'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
-      it '販売価格は半角数字以外では登録できない' do
-        @item.price = '５００'
+      it '価格が¥9,999,999より高くては登録できないこと' do
+        @item.price = '100000000'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
-      it '価格が10,000,000以上では登録できないこと' do
-        @item.price = '100000001'
+      it '販売価格は全角数字では登録できない' do
+        @item.price = '５００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
@@ -81,6 +81,31 @@ RSpec.describe Item, type: :model do
         @item.price = 'aaaa7777'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
+      end
+      it 'active_hash【カテゴリー】が【１】では登録できないこと' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+      it 'active_hash【商品の状態】が【１】では登録できないこと' do
+        @item.state_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('State must be other than 1')
+      end
+      it 'active_hash【配送料の負担】が【１】では登録できないこと' do
+        @item.delivery_fee_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
+      end
+      it 'active_hash【発送元の地域】が【１】では登録できないこと' do
+        @item.prefecture_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
+      end
+      it 'active_hash【発送までの日数】が【１】では登録できないこと' do
+        @item.day_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Day must be other than 1')
       end
     end
   end
