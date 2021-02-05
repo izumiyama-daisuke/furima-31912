@@ -118,7 +118,9 @@
     <ul class='item-lists'>
       <% @item.each do |item| %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%#= link_to "#" do 原本%>
+        <%= link_to item_path(item.id) do %>
+        <%#= link_to '詳細', tweet_path(tweet.id), method: :get %> これは参考でつ！
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
