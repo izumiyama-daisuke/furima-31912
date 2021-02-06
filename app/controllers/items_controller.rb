@@ -22,12 +22,18 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
   end
 
 
-
-
-  #def edit
+  #def update
+   # tweet = Tweet.find(params[:id])
+    #tweet.update(tweet_params)
   #end
 
   #def update
