@@ -21,6 +21,25 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+  end
+
+
+
+
+  #def edit
+  #end
+
+  #def update
+    #@prototype = Prototype.find(params[:id])
+    #@prototype.update(prototype_params)
+    #if @prototype.save
+      #redirect_to "/prototypes/#{@prototype.id}"
+    #else
+      #render "edit"
+    #end
+  #end
+
   private
 
   def item_params
