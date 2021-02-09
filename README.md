@@ -49,12 +49,12 @@
 
 ### Association
 - belongs_to :user
-- has_one :delivery
+- has_one :address
 - belongs_to :item
 
 
 
-## Deliverysテーブル
+## Addressテーブル
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
@@ -64,7 +64,7 @@
 | address1          | string     | null: false                    |番地
 | address2          | string     |                                |建物名
 | telephone         | string     | null: false,                   |電話番号
-| buy               | references | null: false, foreign_key: true |
+| order             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
