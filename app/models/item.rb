@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
+  #has_many :users, through: :orders
   belongs_to :user
-  has_one :oeder
+  has_one :order
+  #has_many :orders
+  has_one :address
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
