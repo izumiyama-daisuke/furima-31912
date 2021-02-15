@@ -123,9 +123,11 @@
           <%= image_tag item.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
+          <%# if item.orders.item_id != nil %>                      <%##ためしです %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <%# end %>                                            <%##ためしです %>
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
