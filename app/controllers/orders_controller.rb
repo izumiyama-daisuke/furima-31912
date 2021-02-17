@@ -10,13 +10,13 @@ class OrdersController < ApplicationController
 
   def create
     @item_order = ItemOrder.new(order_params)
-    @item = Item.find(params[:item_id])           ##  Pay.jpでpriceを送信するため
+    @item = Item.find(params[:item_id])
     if @item_order.valid?
       pay_item
       @item_order.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])         ##  購入ページの写真表示のため
+      @item = Item.find(params[:item_id])
       render action: :index
     end
   end
@@ -30,9 +30,9 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
-        amount: @item.price,           # 商品の値段
-        card: order_params[:token],    # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
+        amount: @item.price,
+        card: order_params[:token],
+        currency: 'jpy'
       )
   end
 end
