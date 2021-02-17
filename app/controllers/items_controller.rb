@@ -20,9 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #@item = Item.find(item_params)
     @item = Item.find(params[:id])
-
   end
 
   def edit
