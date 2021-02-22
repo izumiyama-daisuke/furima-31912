@@ -1,6 +1,6 @@
 class ItemOrder
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :address1, :address2, :telephone, :item_id, :user_id, :token
+  attr_accessor :postal_code, :prefecture_id, :city, :address1, :address2, :telephone, :item_id, :user_id, :token, :order_id
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
@@ -15,8 +15,8 @@ class ItemOrder
   end
 
   def save
-    Order.create(item_id: item_id, user_id: user_id)
+    order_id = Order.create(item_id: item_id, user_id: user_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address1: address1, address2: address2,
-                   telephone: telephone, item_id: item_id)
+                   telephone: telephone, order_id: order_id.id)
   end
 end

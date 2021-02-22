@@ -37,7 +37,7 @@
 ### Association
 - belongs_to :user
 - has_one :order
-- has_one :address
+
 
 
 
@@ -51,7 +51,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-
+- has_one :address
 
 
 ## Addressテーブル
@@ -64,7 +64,7 @@
 | address1          | string     | null: false                    |番地
 | address2          | string     |                                |建物名
 | telephone         | string     | null: false,                   |電話番号
-| item              | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item
+- belongs_to :order

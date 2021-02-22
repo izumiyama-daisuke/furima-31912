@@ -7,7 +7,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.string  :address1,         null: false                    #番地
       t.string  :address2,         null: false                    #建物名
       t.string  :telephone,        null: false                    #電話番号
-      t.references :item,          null: false, foreign_key: true
+      t.references :order,         null: false, foreign_key: true
 
       t.timestamps
     end
