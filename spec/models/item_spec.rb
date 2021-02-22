@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
+    @user = FactoryBot.build(:user)
+    @item.user_id = @user.id
   end
   describe '商品出品機能' do
     context '商品が登録できるとき' do
@@ -110,3 +112,7 @@ RSpec.describe Item, type: :model do
     end
   end
 end
+
+#  テストで使用
+#  bundle exec rspec spec/models/item_spec.rb
+#  @item_order.errors.full_messages

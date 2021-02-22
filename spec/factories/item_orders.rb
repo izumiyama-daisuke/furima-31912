@@ -6,8 +6,8 @@ FactoryBot.define do
     address1                   { '青山1-1-1' }
     address2                   { '柳ビル103' }
     telephone                  { '09012345678' }
-    item_id                    { rand(30) }
-    user_id                    { rand(30) }
     token                      { 'tok_abcdefghijk00000000000000000' }
+
+
   end
 end

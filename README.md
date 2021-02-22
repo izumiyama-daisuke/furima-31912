@@ -32,11 +32,12 @@
 | prefecture_id     | integer    | null: false                    |発送地 (ActiveHash)
 | day_id            | integer    | null: false                    |      (ActiveHash)
 | price             | integer    | null: false                    |値段
-| user              | references | foreign_key: true              |出品者
+| user              | references | null: false,foreign_key: true  |出品者
 
 ### Association
 - belongs_to :user
 - has_one :order
+- has_one :address
 
 
 
@@ -49,7 +50,6 @@
 
 ### Association
 - belongs_to :user
-- has_one :address
 - belongs_to :item
 
 
@@ -64,7 +64,7 @@
 | address1          | string     | null: false                    |番地
 | address2          | string     |                                |建物名
 | telephone         | string     | null: false,                   |電話番号
-| order             | references | null: false, foreign_key: true |
+| item              | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :order
+- belongs_to :item
