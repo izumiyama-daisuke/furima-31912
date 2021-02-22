@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-
 RSpec.describe ItemOrder, type: :model do
   before do
-    @user = FactoryBot.build(:user)  
-    @item = FactoryBot.build(:item)  
+    @user = FactoryBot.build(:user)
+    @item = FactoryBot.build(:item)
     @item_order = FactoryBot.build(:item_order)
-    @item_order.item_id = @item.id  
-    @item_order.user_id = @user.id  
+    @item_order.item_id = @item.id
+    @item_order.user_id = @user.id
   end
 
   describe '商品購入機能' do
@@ -25,7 +24,6 @@ RSpec.describe ItemOrder, type: :model do
   context '購入情報が登録できないとき' do
     it '郵便番号が空では登録できない' do
       @item_order.postal_code = nil
-      
 
       @item_order.valid?
       expect(@item_order.errors.full_messages).to include("Postal code can't be blank",

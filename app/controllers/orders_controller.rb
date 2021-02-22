@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def create
     @item_order = ItemOrder.new(order_params)
-    
+
     if @item_order.valid?
       pay_item
       @item_order.save

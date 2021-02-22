@@ -7,7 +7,5 @@ FactoryBot.define do
     address2                   { '柳ビル103' }
     telephone                  { '09012345678' }
     token                      { 'tok_abcdefghijk00000000000000000' }
-
-
   end
 end
