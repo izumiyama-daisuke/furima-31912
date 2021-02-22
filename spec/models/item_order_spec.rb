@@ -50,7 +50,7 @@ RSpec.describe ItemOrder, type: :model do
       expect(@item_order.errors.full_messages).to include("City can't be blank")
     end
     it '番地が空では登録できない' do
-      @item_order.address1 = nil
+      @item_order.address = nil
       @item_order.valid?
       expect(@item_order.errors.full_messages).to include("Address1 can't be blank")
     end
