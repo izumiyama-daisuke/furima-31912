@@ -29,7 +29,7 @@ RSpec.describe ItemOrder, type: :model do
                                                             'Postal code is invalid. Include hyphen(-)')
       end
       it '郵便番号が(数字３桁[-]数字4桁)の形式で「ハイフン」がないと登録できない' do
-        @item_order.postal_code = '3334444'
+        @item_order.postal_code = 3_334_444
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
@@ -40,7 +40,7 @@ RSpec.describe ItemOrder, type: :model do
                                                             "Prefecture can't be other_than: 1")
       end
       it '都道府県が未選択（prefecture_id = 1）では登録できない' do
-        @item_order.prefecture_id = '1'
+        @item_order.prefecture_id = 1
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Prefecture can't be other_than: 1")
       end
