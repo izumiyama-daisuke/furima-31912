@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :buys
+- has_many :orders
 
 
 
@@ -32,15 +32,16 @@
 | prefecture_id     | integer    | null: false                    |発送地 (ActiveHash)
 | day_id            | integer    | null: false                    |      (ActiveHash)
 | price             | integer    | null: false                    |値段
-| user              | references | foreign_key: true              |出品者
+| user              | references | null: false,foreign_key: true  |出品者
 
 ### Association
 - belongs_to :user
-- has_one :buy
+- has_one :order
 
 
 
-## Buysテーブル
+
+## Ordersテーブル
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
@@ -49,22 +50,21 @@
 
 ### Association
 - belongs_to :user
-- has_one :delivery
 - belongs_to :item
+- has_one :address
 
 
-
-## Deliverysテーブル
+## Addressテーブル
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
 | postal_code       | string     | null: false                    |郵便番号
 | prefecture_id     | integer    | null: false                    |都道府県(ActiveHash)
 | city              | string     | null: false                    |市町村
-| address1          | string     | null: false                    |番地
-| address2          | string     |                                |建物名
+| address           | string     | null: false                    |番地
+| building_name     | string     |                                |建物名
 | telephone         | string     | null: false,                   |電話番号
-| buy               | references | null: false, foreign_key: true |
+| order             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :buy
+- belongs_to :order
