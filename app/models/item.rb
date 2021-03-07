@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one :order
-  has_one_attached :image
+  has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :item_name
     validates :description
-    validates :image
+    validates :images   ######################  sを追記
     validates :price, inclusion: { in: 300..9_999_999 }
   end
 
