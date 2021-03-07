@@ -6,7 +6,14 @@
       <%= @item.item_name %>
     </h2>
     <div class='item-img-content'>
-      <%= image_tag @item.image, class:"item-box-img" %>
+      <%#= 追記 画像を複数表示 %>   
+          <div class="items">
+          <% @item.images.each do |image| %>
+            <%= image_tag image, class:'item-img' %>
+          <% end %>
+          </div>
+        <%#= 追記 %> 
+      <%#= image_tag @item.image, class:"item-box-img" %> <%# 画像をシングル表示 %> 
       <% if @item.order != nil %> 
       <div class='sold-out'>
         <span>Sold Out!!</span>
@@ -102,7 +109,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href=“#” class=‘another-item’><%= @item.category.name %>をもっと見る</a>
+  <a href="/" class=‘another-item’><%= @item.category.name %>をもっと見る</a>
 </div>
 
 <%= render "shared/footer" %>

@@ -2,7 +2,7 @@
   <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-
+    
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -22,7 +22,8 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]', id: "item-image" %>
+        <div id="image-list"></div>                   <%#  複数の画像投稿場所を記述 %>
       </div>
     </div>
 

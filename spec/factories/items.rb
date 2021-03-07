@@ -9,7 +9,6 @@ FactoryBot.define do
     day_id                  { '2' }
     price                   { '300' }
 
-    #   id { '9' }
 
     association :user
 

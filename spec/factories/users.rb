@@ -11,6 +11,5 @@ FactoryBot.define do
     last_kana               { 'ナマエ' }
     birthday                { '2000/2/22' }
 
-    #   id                      { '9' }
   end
 end
