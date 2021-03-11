@@ -120,7 +120,6 @@
       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
-        <%#= 追記 %>   
           <div class="items">
           <% item.images.each do |image| %>
             <% if image == item.images[0] %>
@@ -128,9 +127,6 @@
             <% end %>
           <% end %>
           </div>
-        <%#= 追記 %> 
-
-          <%#= image_tag item.image, class: "item-img" %>   
 
           <% if item.order != nil %>
           <div class='sold-out'>
