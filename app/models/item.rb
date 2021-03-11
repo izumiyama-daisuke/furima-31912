@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :item_name
     validates :description
-    validates :images   ######################  sを追記
+    validates :images
     validates :price, inclusion: { in: 300..9_999_999 }
   end
 
