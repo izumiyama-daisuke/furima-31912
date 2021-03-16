@@ -3,6 +3,7 @@
 <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
+  <%= link_to 'Googleアカウントでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
     <h1 class='form-header-text'>
       会員情報入力
     </h1>
